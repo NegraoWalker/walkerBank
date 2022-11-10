@@ -1,30 +1,31 @@
 public class App {
     public static void main(String[] args) {
-        // Conta conta1 = new Conta();
-        // Conta conta2 = new Conta();
-        // // Depositando o valor:
-        // conta1.depositar(1000);
-        // // Exibindo na tela se o saldo deu certo, o valro do saque e o saque
-        // atualizado:
-        // System.out.println("Valor depositado: " + conta1.saldo);
-        // System.out.println("Foi efetuado o saque: " + conta1.sacar(500));
-        // System.out.println("Saldo Total Atualizado: " + conta1.saldo);
-        // // Transferindo o valor de 300 reais da conta1 para conta2
-        // System.out.println("Transferência feita: " + conta2.transferir(conta1, 300));
-        // System.out.println("Saldo da conta2: " + conta2.saldo);
-        // System.out.println("Saldo da conta1: " + conta1.saldo);
+        Conta conta = new Conta(-1, -2); // Contrutor chamado
+        Cliente cliente = new Cliente();
 
-        Cliente walker = new Cliente();
-        walker.nome = "Walker Esteves Negrão";
-        walker.cpf = "07845684892233";
-        walker.profissao = "Programador";
+        // conta.setAgencia(-1);
+        // conta.setNumero(6900021);
+        conta.depositar(1000);
+        conta.setTitular(cliente);
 
-        Conta contaWalker = new Conta();
-        contaWalker.titular = walker;
+        System.out.println(conta.getSaldo());
+        cliente.setNome("Walker Esteves Negrão");
+        cliente.setCpf("07844333345566");
+        cliente.setProfissao("Programador");
 
-        contaWalker.depositar(1500);
-        System.out.println("Nome do Titular da conta: " + contaWalker.titular.nome);
-        System.out.println("Saldo disponível: " + contaWalker.saldo);
+        System.out.println(cliente.getNome());
+        System.out.println(conta.getTitular().getNome());
+
+        conta.getTitular().setNome("Sandra Aparecida");
+        conta.getTitular().setCpf("068423233235677");
+        conta.getTitular().setProfissao("Dona de casa");
+
+        System.out.println(cliente.getNome());
+
+        Conta novaConta = new Conta(-1, -2);
+        novaConta.depositar(1000);
+
+        System.out.println(Conta.getTotalDeContas());
 
     }
 }
